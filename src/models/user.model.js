@@ -1,4 +1,4 @@
-import moongoose , { Schema } from "mongoose";
+import mongoose , { Schema } from "mongoose";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
@@ -72,6 +72,7 @@ userSchema.methods.generateAccessToken = function(){
         {
             expiresIn : process.env.ACCESS_TOKEN_EXPIRES_IN
         }
+
     )
 }
 
@@ -83,7 +84,7 @@ userSchema.methods.generateRefreshToken = function(){
             username : this.username,
             fullname : this.fullname,
         },  
-        process.env. REFERSH_TOKEN_SECRET ,
+        process.env. REFRESH_TOKEN_SECRET ,
         {
             expiresIn : process.env.REFRESH_TOKEN_EXPIRES_IN
         }
